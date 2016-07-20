@@ -10,8 +10,8 @@ module.exports = {
     debug: true,
     devtool: '#eval',
     entry: [
-    	'webpack-hot-middleware/client?reload=true',
-    	path.join(src, 'index.js')
+        'webpack-hot-middleware/client?reload=true',
+        path.join(src, 'index.js')
     ],
     output: {
         path: dist,
@@ -19,7 +19,7 @@ module.exports = {
         filename: 'scripts.js'
     },
     plugins: [
-    	new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
