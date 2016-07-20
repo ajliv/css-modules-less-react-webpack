@@ -1,0 +1,23 @@
+@import '~styles/variables/fonts.less';
+
+.normal {
+	display: flex;
+	padding: 2rem;
+	position: relative;
+
+	> h1 {
+		font-family: @fonts-heading-family;
+		font-weight: 400;
+		margin: 0 0 1em;
+	}
+}
+
+.horizontal {
+	composes: normal;
+	flex-direction: row;
+}
+
+.vertical {
+	composes: normal;
+	flex-direction: column;
+}

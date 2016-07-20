@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+'use strict';
+
+var browserSync = require('browser-sync');
+var webpack = require('webpack');
+var webpackConfig = require('../webpack.config.dev');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+var webpackBundler = webpack(webpackConfig);
+
+browserSync({
+    ghostMode: false,
+    host: 'localhost.adultswim.com',
+    open: 'external',
+    server: {
+        baseDir: 'src',
+        middleware: [
+        	webpackDevMiddleware(webpackBundler, {
+	            publicPath: webpackConfig.output.publicPath,
+	            stats: { colors: true },
+	            noInfo: true
+	        }),
+	        webpackHotMiddleware(webpackBundler)
+        ]
+    },
+    files: ['src/*.html']
+});
